@@ -41,7 +41,7 @@ public class Loginpage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        Combobox = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
@@ -60,12 +60,22 @@ public class Loginpage extends javax.swing.JFrame {
         });
 
         jButton2.setText("SIGN UP");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("ID");
 
         jLabel2.setText("PASSWORD");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Staff" }));
+        Combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Staff" }));
+        Combobox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboboxActionPerformed(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gsc/image832.png"))); // NOI18N
 
@@ -89,7 +99,7 @@ public class Loginpage extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                                 .addComponent(jButton2))
                             .addComponent(jLabel2)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField1))
                         .addGap(87, 87, 87))))
         );
@@ -107,7 +117,7 @@ public class Loginpage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -121,12 +131,23 @@ public class Loginpage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          // TODO add your handling code here:
-	
-	 String sql = "select * from staff where username = ? and password = ?";
-	 
+	 Connection conn;
+	 String sql;
+	 String itemText = (String)Combobox.getSelectedItem( );
+	 if ( itemText == "Staff"){
+	 sql = "select * from staff where username = ? and password = ?";
+	 }
+	 else{
+	 sql = "select * from customer where username = ? and password = ?";   
+	 }
+	    
 	 try{
 	     Class.forName("com.mysql.jdbc.Driver");
-	     Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/staff_info", "root", "rotikeju");
+	     if ( itemText == "Staff"){
+		 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/staff_info", "root", "rotikeju");
+	       }else{
+		 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/customer_info", "root", "rotikeju");  
+	       }
 	     PreparedStatement pstmt = conn.prepareStatement(sql);
 	     pstmt.setString(1, jTextField1.getText());
 	     pstmt.setString(2, new String(jPasswordField1.getPassword()));
@@ -145,6 +166,15 @@ public class Loginpage extends javax.swing.JFrame {
 	     JOptionPane.showMessageDialog(null, e);
 	 }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboboxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboboxActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new Signup().setVisible(true);
+	dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,6 +212,7 @@ public class Loginpage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> Combobox;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
@@ -192,7 +223,6 @@ public class Loginpage extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup8;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
