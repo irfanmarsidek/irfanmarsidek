@@ -142,12 +142,8 @@ public class Loginpage extends javax.swing.JFrame {
 	 }
 	    
 	 try{
-	     Class.forName("com.mysql.jdbc.Driver");
-	     if ( itemText == "Staff"){
-		 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/staff_info", "root", "rotikeju");
-	       }else{
-		 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/customer_info", "root", "rotikeju");  
-	       }
+	     Class.forName("com.mysql.jdbc.Driver");	     
+	     conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gsc", "root", "rotikeju");
 	     PreparedStatement pstmt = conn.prepareStatement(sql);
 	     pstmt.setString(1, jTextField1.getText());
 	     pstmt.setString(2, new String(jPasswordField1.getPassword()));
@@ -155,6 +151,14 @@ public class Loginpage extends javax.swing.JFrame {
 	     ResultSet rs = pstmt.executeQuery();
 	     if(rs.next()){
 		 JOptionPane.showMessageDialog(null, "Welcome "+jTextField1.getText(), "Succesful Login", JOptionPane.PLAIN_MESSAGE);
+		 if ( itemText == "Staff"){
+		 new StaffMenu().setVisible(true);
+		 dispose();
+		 }else{
+		 new MovieSelection().setVisible(true);
+		 dispose();
+		 }
+		 
 	     }
 	     else{
 		 JOptionPane.showMessageDialog(null, "Invalid username or password ", "Unsuccesful Login", JOptionPane.PLAIN_MESSAGE);
