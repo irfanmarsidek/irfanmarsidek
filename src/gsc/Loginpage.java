@@ -6,6 +6,7 @@ package gsc;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author Irfan
@@ -84,9 +85,9 @@ public class Loginpage extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(54, 54, 54)
                 .addComponent(jLabel3)
-                .addGap(50, 50, 50)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -106,7 +107,7 @@ public class Loginpage extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+                .addContainerGap(46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -119,7 +120,7 @@ public class Loginpage extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(Combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3))
-                .addGap(30, 30, 30)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -131,11 +132,11 @@ public class Loginpage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          // TODO add your handling code here:
-	 Connection conn;
+	 
 	 String sql;
-	 String itemText = (String)Combobox.getSelectedItem( );
+	 String itemText = (String) Combobox.getSelectedItem();
 	 if ( itemText == "Staff"){
-	 sql = "select * from staff where username = ? and password = ?";
+	 sql = "select * from staff where staffid = ? and password = ?";
 	 }
 	 else{
 	 sql = "select * from customer where username = ? and password = ?";   
@@ -143,7 +144,7 @@ public class Loginpage extends javax.swing.JFrame {
 	    
 	 try{
 	     Class.forName("com.mysql.jdbc.Driver");	     
-	     conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gsc", "root", "rotikeju");
+	     Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "rotikeju");
 	     PreparedStatement pstmt = conn.prepareStatement(sql);
 	     pstmt.setString(1, jTextField1.getText());
 	     pstmt.setString(2, new String(jPasswordField1.getPassword()));
@@ -154,6 +155,7 @@ public class Loginpage extends javax.swing.JFrame {
 		 if ( itemText == "Staff"){
 		 new StaffMenu().setVisible(true);
 		 dispose();
+		
 		 }else{
 		 new MovieSelection().setVisible(true);
 		 dispose();

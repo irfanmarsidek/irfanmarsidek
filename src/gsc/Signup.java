@@ -42,6 +42,7 @@ public class Signup extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 400));
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Registration Form");
@@ -150,7 +151,7 @@ public class Signup extends javax.swing.JFrame {
 	
 	try{
 	   Class.forName("com.mysql.cj.jdbc.Driver");
-	   Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gsc","root","rotikeju");
+	   Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "rotikeju");
 	   String itemText = (String)jComboBox1.getSelectedItem( );
 	   String sql,last;
 	   
