@@ -229,6 +229,7 @@ public class Signup extends javax.swing.JFrame {
 
 	/* Create and display the form */
 	java.awt.EventQueue.invokeLater(new Runnable() {
+	    @Override
 	    public void run() {
 		new Signup().setVisible(true);
 	    }
