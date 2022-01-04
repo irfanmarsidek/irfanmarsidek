@@ -203,12 +203,16 @@ public class SeatSelection extends javax.swing.JFrame {
 	       prp.setString(2, seat);
 	       prp.executeUpdate();
 	       JOptionPane.showMessageDialog(null, "Seat Succesfully Booked,");
-	       new FNB().setVisible(true);
+	       receipt rec = new receipt();
+	       rec.dat(movie,jTextPane1.getText(),jTextPane2.getText());
+	       rec.setVisible(true);	       
+//	       new FNB().setVisible(true);
 	       dispose();
 	   }
 	   else{
 	       JOptionPane.showMessageDialog(null, "Seat not Available");
 	   }
+	   
 	   
 	   
 	   
