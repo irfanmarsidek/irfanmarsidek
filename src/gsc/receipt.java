@@ -40,6 +40,29 @@ public class receipt extends javax.swing.JFrame {
 	this.movie = mov;
 	this.seat = seat;
 	this.mprice = price;
+	 try{
+	    String movie = this.movie;
+	    jTextPane4.setText(seat);
+	    jTextPane9.setText(mprice);
+	    Class.forName("com.mysql.cj.jdbc.Driver");	     
+	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "rotikeju");
+	    PreparedStatement prp = conn.prepareStatement("select * from movies where idmovies = '"+movie+"'");
+	    ResultSet rs = prp.executeQuery();
+	    rs.next();
+	    jTextPane1.setText(rs.getString(3));
+	    this.name = rs.getString(3);
+	    jTextPane2.setText(rs.getString(2));
+	    this.date = rs.getString(2);
+	    jTextPane3.setText(rs.getString(4));
+	    this.time = rs.getString(4);
+	    rs.getString(1);
+	    
+	    
+	    
+	    
+	}catch(Exception e){
+	    JOptionPane.showMessageDialog(null, e);
+	}
     }
     
 
@@ -76,7 +99,6 @@ public class receipt extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
         jTextPane9 = new javax.swing.JTextPane();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 300));
@@ -131,13 +153,6 @@ public class receipt extends javax.swing.JFrame {
         jTextPane9.setEditable(false);
         jScrollPane9.setViewportView(jTextPane9);
 
-        jButton2.setText("LOAD");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -178,11 +193,7 @@ public class receipt extends javax.swing.JFrame {
                                         .addComponent(jScrollPane6))
                                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(7, 7, 7)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel1)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(68, 68, 68))
         );
@@ -228,9 +239,7 @@ public class receipt extends javax.swing.JFrame {
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(83, 83, 83)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addComponent(jButton1)
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -253,32 +262,6 @@ public class receipt extends javax.swing.JFrame {
 	    JOptionPane.showMessageDialog(null, e);
 	}
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try{
-	    String movie = this.movie;
-	    jTextPane4.setText(seat);
-	    jTextPane9.setText(mprice);
-	    Class.forName("com.mysql.cj.jdbc.Driver");	     
-	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "rotikeju");
-	    PreparedStatement prp = conn.prepareStatement("select * from movies where idmovies = '"+movie+"'");
-	    ResultSet rs = prp.executeQuery();
-	    rs.next();
-	    jTextPane1.setText(rs.getString(3));
-	    this.name = rs.getString(3);
-	    jTextPane2.setText(rs.getString(2));
-	    this.date = rs.getString(2);
-	    jTextPane3.setText(rs.getString(4));
-	    this.time = rs.getString(4);
-	    rs.getString(1);
-	    
-	    
-	    
-	    
-	}catch(Exception e){
-	    JOptionPane.showMessageDialog(null, e);
-	}
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,7 +300,6 @@ public class receipt extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
