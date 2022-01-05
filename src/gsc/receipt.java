@@ -249,7 +249,7 @@ public class receipt extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
 	    String msg = name+"\n"+date+"\n"+time+"\n"+seat+"\n";
-	    String path = JOptionPane.showInputDialog("Enter Directory to Download QR :");
+	    String path = JOptionPane.showInputDialog(null, "Enter Directory to Download QR :", "Generating QR Code", JOptionPane.PLAIN_MESSAGE);
 	    String realpath = path+"/ticket.png";
 	    ByteArrayOutputStream out = QRCode.from(msg).to(ImageType.PNG).stream();
 	    File f = new File(realpath);
