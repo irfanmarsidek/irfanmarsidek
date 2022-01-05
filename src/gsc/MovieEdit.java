@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  * @author Irfan
  */
 public class MovieEdit extends javax.swing.JFrame {
+    public String movie;
 
     /**
      * Creates new form MovieEdit
@@ -67,7 +68,7 @@ public class MovieEdit extends javax.swing.JFrame {
         jLabel7.setText("jLabel7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(500, 400));
+        setLocation(new java.awt.Point(500, 200));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Theatre Edit");
@@ -161,7 +162,7 @@ public class MovieEdit extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
@@ -173,6 +174,9 @@ public class MovieEdit extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String movie = (String) jComboBox1.getSelectedItem();
+	MovieEditSynop mov = new MovieEditSynop();
+	mov.dat(movie);
+	mov.setVisible(true);
 	
 	try{
 	    Class.forName("com.mysql.cj.jdbc.Driver");	     
@@ -194,6 +198,7 @@ public class MovieEdit extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String movie = (String) jComboBox1.getSelectedItem();
+	this.movie = movie;
 	try{
 	    Class.forName("com.mysql.cj.jdbc.Driver");	     
 	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "rotikeju");
