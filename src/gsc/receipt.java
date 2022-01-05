@@ -241,7 +241,7 @@ public class receipt extends javax.swing.JFrame {
         try{
 	    String msg = name+"\n"+date+"\n"+time+"\n"+seat+"\n";
 	    String path = JOptionPane.showInputDialog("Enter Directory to Download QR :");
-	    String realpath = path+"/gamba.png";
+	    String realpath = path+"/ticket.png";
 	    ByteArrayOutputStream out = QRCode.from(msg).to(ImageType.PNG).stream();
 	    File f = new File(realpath);
 	    FileOutputStream fos = new FileOutputStream(f);
