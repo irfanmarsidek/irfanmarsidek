@@ -45,6 +45,9 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
+      <Point value="[200, 100]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -73,7 +76,7 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jPanel3" pref="0" max="32767" attributes="0"/>
+                          <Component id="jPanel3" pref="654" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -334,7 +337,7 @@
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jSpinner1" pref="43" max="32767" attributes="0"/>
+                                      <Component id="jSpinner1" max="32767" attributes="0"/>
                                       <Component id="jSpinner4" max="32767" attributes="0"/>
                                       <Component id="jSpinner3" max="32767" attributes="0"/>
                                   </Group>
@@ -362,7 +365,7 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jScrollPane8" pref="55" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane8" max="32767" attributes="0"/>
                                       <Component id="jScrollPane9" max="32767" attributes="0"/>
                                       <Component id="jScrollPane10" alignment="0" max="32767" attributes="0"/>
                                   </Group>

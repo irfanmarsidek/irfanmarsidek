@@ -41,7 +41,7 @@ public class Signup extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(500, 400));
+        setLocation(new java.awt.Point(200, 100));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -155,9 +155,19 @@ public class Signup extends javax.swing.JFrame {
 	   String itemText = (String)jComboBox1.getSelectedItem( );
 	   String sql,last;
 	   
-	    if ( itemText == "Staff"){
+	   
+	    if ( itemText.equals("Staff")){
 	    sql = "insert into staff values (?, ?, ?, ?, ?, ?)";
-	    last="select count(*) from staff ";
+	    last="select count(*) from staff ";	  
+	    String cod = JOptionPane.showInputDialog("Enter passcode for Staff registration");
+	    here:
+	    if(true){
+		if(cod.equals("aristotle"))
+		    break here;
+		JOptionPane.showMessageDialog(null, "Passcode Incorrect!");
+		return;
+	    }
+		
 	    }
 	    else{
 	    sql = "insert into customer values (?, ?, ?, ?, ?, ?)";

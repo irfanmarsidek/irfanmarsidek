@@ -108,6 +108,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel7.setText("Index");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(200, 100));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -262,7 +263,7 @@ public class Payment extends javax.swing.JFrame {
                                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jSpinner1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                                    .addComponent(jSpinner1)
                                     .addComponent(jSpinner4)
                                     .addComponent(jSpinner3))
                                 .addGap(18, 18, 18)
@@ -283,7 +284,7 @@ public class Payment extends javax.swing.JFrame {
                                             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane8)
                                     .addComponent(jScrollPane9)
                                     .addComponent(jScrollPane10))))
                         .addGap(259, 259, 259))
@@ -422,7 +423,7 @@ public class Payment extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 654, Short.MAX_VALUE))
                         .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
                 .addGap(229, 229, 229)

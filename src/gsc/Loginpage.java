@@ -50,7 +50,7 @@ public class Loginpage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GSC Login Page");
-        setLocation(new java.awt.Point(500, 400));
+        setLocation(new java.awt.Point(200, 100));
         setResizable(false);
 
         jButton1.setText("LOG IN");

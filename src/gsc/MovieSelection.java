@@ -54,7 +54,7 @@ public class MovieSelection extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Blockbuster List");
-        setLocation(new java.awt.Point(500, 400));
+        setLocation(new java.awt.Point(200, 100));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("What Do You Wanna Watch ?");

@@ -101,7 +101,7 @@ public class receipt extends javax.swing.JFrame {
         jTextPane9 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(500, 300));
+        setLocation(new java.awt.Point(200, 100));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Paid Succesfully !");

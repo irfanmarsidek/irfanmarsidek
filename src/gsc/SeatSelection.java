@@ -44,7 +44,7 @@ public class SeatSelection extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Seat Selection");
-        setLocation(new java.awt.Point(500, 300));
+        setLocation(new java.awt.Point(200, 100));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gsc/rect43664.png"))); // NOI18N
 

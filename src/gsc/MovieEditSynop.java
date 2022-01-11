@@ -50,7 +50,7 @@ public class MovieEditSynop extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Synopsis and Cast");
-        setLocation(new java.awt.Point(400, 525));
+        setLocation(new java.awt.Point(200, 200));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
