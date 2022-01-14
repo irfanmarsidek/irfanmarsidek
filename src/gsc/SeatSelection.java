@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import java.sql.*;
 
 public class SeatSelection extends javax.swing.JFrame {
+    public String price;
 
     /**
      * Creates new form SeatSelection
@@ -205,7 +206,9 @@ public class SeatSelection extends javax.swing.JFrame {
 	       JOptionPane.showMessageDialog(null, "Seat Succesfully Booked,");
 	       receipt rec = new receipt();
 	       rec.dat(movie,jTextPane1.getText(),jTextPane2.getText());
-	       rec.setVisible(true);	       
+	       Payment pay = new Payment();
+	       pay.Movie(movie, seat, price);
+	       pay.setVisible(true);
 //	       new FNB().setVisible(true);
 	       dispose();
 	   }
@@ -251,6 +254,7 @@ public class SeatSelection extends javax.swing.JFrame {
 		   jTextPane3.setText("Not Available");
 	       }
 	       String pr = Double.toString(rs.getDouble(3));
+	       this.price = pr;
 	       jTextPane2.setText(pr);
 	   }
 	   

@@ -4,11 +4,15 @@
  */
 package gsc;
 
+import java.awt.Image;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.sql.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import net.glxn.qrgen.QRCode;
 import net.glxn.qrgen.image.ImageType;
 
@@ -249,8 +253,11 @@ public class receipt extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
 	    String msg = name+"\n"+date+"\n"+time+"\n"+seat+"\n";
-	    String path = JOptionPane.showInputDialog(null, "Enter Directory to Download QR :", "Generating QR Code", JOptionPane.PLAIN_MESSAGE);
-	    String realpath = path+"/ticket.png";
+	    JFileChooser fileChooser = new JFileChooser();
+	    fileChooser.showOpenDialog(null);	    
+            File e = fileChooser.getSelectedFile();            
+            String path = e.getAbsolutePath(); 
+	    String realpath = path+".png";
 	    ByteArrayOutputStream out = QRCode.from(msg).to(ImageType.PNG).stream();
 	    File f = new File(realpath);
 	    FileOutputStream fos = new FileOutputStream(f);
