@@ -17,7 +17,7 @@ public class Payment extends javax.swing.JFrame {
     public void Movie(String id,String seat,String price){
 	try{
 	    Class.forName("com.mysql.cj.jdbc.Driver");	     
-	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "rotikeju");
+	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "test");
 	    PreparedStatement prp = conn.prepareStatement("select name from movies where idmovies = '"+id+"'");
 	    ResultSet rs = prp.executeQuery();
 	    rs.next();

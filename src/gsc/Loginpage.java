@@ -144,7 +144,7 @@ public class Loginpage extends javax.swing.JFrame {
 	    
 	 try{
 	     Class.forName("com.mysql.cj.jdbc.Driver");	     
-	     Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "rotikeju");
+	     Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "test");
 	     PreparedStatement pstmt = conn.prepareStatement(sql);
 	     pstmt.setString(1, jTextField1.getText());
 	     pstmt.setString(2, new String(jPasswordField1.getPassword()));

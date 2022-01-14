@@ -182,7 +182,7 @@ public class SeatSelection extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        try{
 	   Class.forName("com.mysql.cj.jdbc.Driver");
-	   Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "rotikeju");
+	   Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "test");
 	   String movie = (String) jComboBox3.getSelectedItem();
 	   PreparedStatement prp= null;
 	   String seat = (String) jTextPane1.getText();
@@ -228,7 +228,7 @@ public class SeatSelection extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try{
 	   Class.forName("com.mysql.cj.jdbc.Driver");
-	   Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "rotikeju");
+	   Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "test");
 	   String movie = (String) jComboBox3.getSelectedItem();
 	   PreparedStatement prp= null;
 	   String seat = (String) jTextField1.getText();

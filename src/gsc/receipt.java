@@ -49,7 +49,7 @@ public class receipt extends javax.swing.JFrame {
 	    jTextPane4.setText(seat);
 	    jTextPane9.setText(mprice);
 	    Class.forName("com.mysql.cj.jdbc.Driver");	     
-	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "rotikeju");
+	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "test");
 	    PreparedStatement prp = conn.prepareStatement("select * from movies where idmovies = '"+movie+"'");
 	    ResultSet rs = prp.executeQuery();
 	    rs.next();

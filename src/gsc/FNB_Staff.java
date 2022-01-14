@@ -44,7 +44,7 @@ public class FNB_Staff extends javax.swing.JFrame {
     public void Connect(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC","admin","rotikeju");
+            con = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC","admin","test");
                     } catch (ClassNotFoundException ex) {
             Logger.getLogger(FNB_Staff.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {

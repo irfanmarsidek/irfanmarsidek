@@ -24,7 +24,7 @@ public class MovieEditSynop extends javax.swing.JFrame {
 	this.movie = movie;
 	try{
 	    Class.forName("com.mysql.cj.jdbc.Driver");	     
-	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "rotikeju");
+	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "test");
 	    PreparedStatement prp = conn.prepareStatement("select info from movie_info where idmovie_info = ?");
 	    prp.setString(1, movie);
 	    ResultSet rs = prp.executeQuery();
@@ -101,7 +101,7 @@ public class MovieEditSynop extends javax.swing.JFrame {
 	    }
 	    else{
 		Class.forName("com.mysql.cj.jdbc.Driver");	     
-		Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "rotikeju");
+		Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "test");
 		PreparedStatement prp = conn.prepareStatement("update movie_info set info = ? where idmovie_info = ?");
 		prp.setString(2, movie);
 		prp.setString(1, jTextArea1.getText());

@@ -180,7 +180,7 @@ public class MovieEdit extends javax.swing.JFrame {
 	
 	try{
 	    Class.forName("com.mysql.cj.jdbc.Driver");	     
-	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "rotikeju");
+	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "test");
 	    PreparedStatement prp = conn.prepareStatement("select * from movies where idmovies = ?");
 	    prp.setString(1, movie);
 	    ResultSet rs = prp.executeQuery();
@@ -201,7 +201,7 @@ public class MovieEdit extends javax.swing.JFrame {
 	this.movie = movie;
 	try{
 	    Class.forName("com.mysql.cj.jdbc.Driver");	     
-	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "rotikeju");
+	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "test");
 	    PreparedStatement prp = conn.prepareStatement("update movies set name = ?,date = ?,time = ? where idmovies = ?");
 	    prp.setString(1, jTextPane1.getText());
 	    prp.setString(2, jTextPane2.getText());
