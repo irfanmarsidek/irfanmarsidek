@@ -4,6 +4,8 @@
  */
 package gsc;
 
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 import java.sql.*;
 
@@ -204,13 +206,16 @@ public class SeatSelection extends javax.swing.JFrame {
 	       prp.setString(2, seat);
 	       prp.executeUpdate();
 	       JOptionPane.showMessageDialog(null, "Seat Succesfully Booked,");
-	       receipt rec = new receipt();
-	       rec.dat(movie,jTextPane1.getText(),jTextPane2.getText());
-	       Payment pay = new Payment();
-	       pay.Movie(movie, seat, price);
-	       pay.setVisible(true);
-//	       new FNB().setVisible(true);
+	       try{
+		   PrintWriter prt = new PrintWriter(new FileOutputStream("temp.txt"));
+		   prt.print(movie+"\n"+seat+"\n"+price);
+		   prt.close();
+	       }catch(Exception e){
+		   JOptionPane.showMessageDialog(null, e);
+	       }
+	       new FNB_Customer().setVisible(true);
 	       dispose();
+
 	   }
 	   else{
 	       JOptionPane.showMessageDialog(null, "Seat not Available");

@@ -7,8 +7,10 @@ package gsc;
 import java.awt.Image;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.sql.*;
+import java.util.Scanner;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -39,12 +41,12 @@ public class receipt extends javax.swing.JFrame {
     
     public receipt() {
 	initComponents();
-    }
-    public void dat(String mov,String seat,String price){
-	this.movie = mov;
-	this.seat = seat;
-	this.mprice = price;
-	 try{
+	try{
+	    Scanner sc = new Scanner(new FileInputStream("temp.txt"));
+	    movie = sc.nextLine();
+	    seat = sc.nextLine();
+	    mprice = sc.nextLine();
+	    try{
 	    String movie = this.movie;
 	    jTextPane4.setText(seat);
 	    jTextPane9.setText(mprice);
@@ -63,11 +65,16 @@ public class receipt extends javax.swing.JFrame {
 	    
 	    
 	    
+	    }catch(Exception e){
+		JOptionPane.showMessageDialog(null, e);
+	    }
+	    
 	    
 	}catch(Exception e){
 	    JOptionPane.showMessageDialog(null, e);
 	}
     }
+    
     
 
     /**
