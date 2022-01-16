@@ -26,7 +26,7 @@ public class FNB_Customer extends javax.swing.JFrame {
     public double subtotal = 0;
     int index = 0;
     private ImageIcon format = null;
-    private int counter;
+    
     /**
      * Creates new form FNB_Customer
      */
@@ -280,9 +280,6 @@ public class FNB_Customer extends javax.swing.JFrame {
 		else if((Integer)spinnerQty.getValue()<1){
 		    JOptionPane.showMessageDialog(null, "Invalid Quantity");
 		}
-		else if(this.counter>2){
-		    JOptionPane.showMessageDialog(null, "Orders cannot exceed 3");
-		}
                 else{
                     String id = Integer.toString(rs.getInt("product_id"));
                     String price = txtPrice.getText();
@@ -305,7 +302,7 @@ public class FNB_Customer extends javax.swing.JFrame {
                     
                     pst = con.prepareStatement("UPDATE `GSC`.`fnb_products` SET `qty` = '"+update+"' WHERE name = '"+name+"'");
                     pst.execute();
-		    this.counter++;
+		    
         
                 }
             }
@@ -383,7 +380,7 @@ public class FNB_Customer extends javax.swing.JFrame {
                 
                     pst = con.prepareStatement("UPDATE `GSC`.`fnb_products` SET `qty` = '"+update+"' WHERE product_id = '"+cell+"'");
                     pst.execute();
-		    counter--;
+		    
                 }
                 
             }catch(SQLException e){
