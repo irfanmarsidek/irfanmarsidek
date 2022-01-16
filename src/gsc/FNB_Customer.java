@@ -7,6 +7,9 @@ package gsc;
 
 import java.awt.HeadlessException;
 import java.awt.Image;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.sql.*;
@@ -330,6 +333,26 @@ public class FNB_Customer extends javax.swing.JFrame {
                 Logger.getLogger(FNB_Customer.class.getName()).log(Level.SEVERE, null, e);
                 
             }
+	    try{
+		PrintWriter prt = new PrintWriter(new FileOutputStream("fnb.txt"));
+		int row = tableOrder.getRowCount();
+		for(int i=0;i<row;i++){
+		    prt.print(tableOrder.getModel().getValueAt(i,1).toString());
+		    prt.print("\t-\t");
+		    prt.print(tableOrder.getModel().getValueAt(i,3).toString());
+		    prt.print("\n");
+		}
+		prt.close();
+	    }catch(FileNotFoundException e){
+		JOptionPane.showMessageDialog(null, e);
+	    }
+	    try{
+		PrintWriter prt = new PrintWriter(new FileOutputStream("sub.txt"));
+		prt.print(Double.toString(subtotal));
+		prt.close();
+	    }catch(FileNotFoundException e){
+		JOptionPane.showMessageDialog(null, e);
+	    }
             new Payment().setVisible(true);
             dispose();
                    
@@ -354,8 +377,8 @@ public class FNB_Customer extends javax.swing.JFrame {
                     int currentQty = rs.getInt("qty");
                     int newQty = currentQty + orderQty;
 		    this.subtotal = subtotal - subtract; 
-		    Double newsub = round(subtotal,2);
-		    txtSubtotal.setText(Double.toString(newsub));
+		    subtotal = round(subtotal,2);
+		    txtSubtotal.setText(Double.toString(subtotal));
                     String update = Integer.toString(newQty);
                 
                     pst = con.prepareStatement("UPDATE `GSC`.`fnb_products` SET `qty` = '"+update+"' WHERE product_id = '"+cell+"'");
