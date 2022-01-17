@@ -54,7 +54,7 @@ public class Payment extends javax.swing.JFrame {
 	}
 	try{
 	    Class.forName("com.mysql.cj.jdbc.Driver");	     
-	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "test");
+	    Connection conn = DriverManager.getConnection("jdbc:mysql://db1.c1gfccwuxgzl.ap-southeast-1.rds.amazonaws.com:3306/cinema", "admin", "rotikeju");
 	    PreparedStatement prp = conn.prepareStatement("select name from movies where idmovies = '"+movie+"'");
 	    ResultSet rs = prp.executeQuery();
 	    rs.next();

@@ -8,7 +8,7 @@ package gsc;
  *
  * @author Irfan
  */
-public class START {
+public class ASTART {
 
     
     public static void main(String[] args) {

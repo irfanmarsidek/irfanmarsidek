@@ -18,7 +18,7 @@ public class MovieSelection extends javax.swing.JFrame {
 	initComponents();
 	 try{
 	    Class.forName("com.mysql.jdbc.Driver");	     
-	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "test");
+	    Connection conn = DriverManager.getConnection("jdbc:mysql://db1.c1gfccwuxgzl.ap-southeast-1.rds.amazonaws.com:3306/cinema", "admin", "rotikeju");
 	    PreparedStatement prp = conn.prepareStatement("select * from movies");
 	    ResultSet rs = prp.executeQuery();
 	    DefaultTableModel tm = (DefaultTableModel)jTable1.getModel();
@@ -154,7 +154,7 @@ public class MovieSelection extends javax.swing.JFrame {
         try{
 	    String movie = (String) jComboBox1.getSelectedItem();
 	    Class.forName("com.mysql.cj.jdbc.Driver");	     
-	    Connection conn = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC", "admin", "test");
+	    Connection conn = DriverManager.getConnection("jdbc:mysql://db1.c1gfccwuxgzl.ap-southeast-1.rds.amazonaws.com:3306/cinema", "admin", "rotikeju");
 	    PreparedStatement prp = conn.prepareStatement("select info from movie_info where idmovie_info = ?");
 	    prp.setString(1, movie);
 	    ResultSet rs = prp.executeQuery();
