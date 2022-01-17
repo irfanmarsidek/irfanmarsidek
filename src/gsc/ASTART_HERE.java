@@ -8,10 +8,12 @@ package gsc;
  *
  * @author Irfan
  */
-public class ASTART {
+public class ASTART_HERE {
 
     
     public static void main(String[] args) {
+	// !!IMPORTANT NOTE!!
+	// Build the whole project (GSC) before run 
 	new Loginpage().setVisible(true);
     }
     
