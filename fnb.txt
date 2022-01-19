@@ -1,2 +1,2 @@
 Combo A	-	1
-Popcorn(R)	-	1
+Popcorn(L)	-	1

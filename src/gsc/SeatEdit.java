@@ -353,6 +353,9 @@ public class SeatEdit extends javax.swing.JFrame {
 	    if(jRadioButton3.isSelected()){
 		for(int i=1;i<20;i=i+2){
 		    String j = Integer.toString(i);
+		    if(j.length()==1){
+			j="0"+j;
+		    }
 		    prp = conn.prepareStatement("update seat"+movie+" set availability = 0 where seat = 'S"+j+"'");
 		    prp.executeUpdate();
 		}
