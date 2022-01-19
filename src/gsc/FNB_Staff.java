@@ -44,7 +44,7 @@ public class FNB_Staff extends javax.swing.JFrame {
     public void Connect(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC","admin","test");
+            con = DriverManager.getConnection("jdbc:mysql://db1.c1gfccwuxgzl.ap-southeast-1.rds.amazonaws.com:3306/cinema", "admin", "rotikeju");
                     } catch (ClassNotFoundException ex) {
             Logger.getLogger(FNB_Staff.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -386,7 +386,7 @@ private JFrame frame;
         String unit_price = txtUnitPrice.getText();
         
         try{
-            pst = con.prepareStatement("UPDATE `GSC`.`fnb_products` SET `name` = '"+name+"', `qty` = '"+quantity+"', `unit_price` = "
+            pst = con.prepareStatement("UPDATE `cinema`.`fnb_products` SET `name` = '"+name+"', `qty` = '"+quantity+"', `unit_price` = "
                     + "'"+unit_price+"' WHERE product_id = '"+id+"'");
             pst.execute();
             

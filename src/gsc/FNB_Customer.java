@@ -41,7 +41,7 @@ public class FNB_Customer extends javax.swing.JFrame {
     public void Connect(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://database-1.c7pfl5eggbdk.us-east-2.rds.amazonaws.com:3306/GSC","admin","test");
+            con = DriverManager.getConnection("jdbc:mysql://db1.c1gfccwuxgzl.ap-southeast-1.rds.amazonaws.com:3306/cinema", "admin", "rotikeju");
                     } catch (ClassNotFoundException ex) {
             Logger.getLogger(FNB_Customer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -313,7 +313,7 @@ public class FNB_Customer extends javax.swing.JFrame {
                     int newQty = currentQty - orderQty;
                     String update = Integer.toString(newQty);
                     
-                    pst = con.prepareStatement("UPDATE `GSC`.`fnb_products` SET `qty` = '"+update+"' WHERE name = '"+name+"'");
+                    pst = con.prepareStatement("UPDATE `cinema`.`fnb_products` SET `qty` = '"+update+"' WHERE name = '"+name+"'");
                     pst.execute();
 		    
         
@@ -391,7 +391,7 @@ public class FNB_Customer extends javax.swing.JFrame {
 		    txtSubtotal.setText(Double.toString(subtotal));
                     String update = Integer.toString(newQty);
                 
-                    pst = con.prepareStatement("UPDATE `GSC`.`fnb_products` SET `qty` = '"+update+"' WHERE product_id = '"+cell+"'");
+                    pst = con.prepareStatement("UPDATE `cinema`.`fnb_products` SET `qty` = '"+update+"' WHERE product_id = '"+cell+"'");
                     pst.execute();
 		    
                 }
