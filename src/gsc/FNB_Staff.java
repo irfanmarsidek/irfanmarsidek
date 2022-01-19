@@ -389,7 +389,8 @@ private JFrame frame;
             pst = con.prepareStatement("UPDATE `cinema`.`fnb_products` SET `name` = '"+name+"', `qty` = '"+quantity+"', `unit_price` = "
                     + "'"+unit_price+"' WHERE product_id = '"+id+"'");
             pst.execute();
-            
+            JOptionPane.showMessageDialog(null, "FNB updated succesfully !");
+	    
             DefaultTableModel tblModel = (DefaultTableModel)table1.getModel();
             tblModel.getDataVector().removeAllElements();
             
@@ -409,6 +410,7 @@ private JFrame frame;
                 tblModel = (DefaultTableModel)table1.getModel();
                 
                 tblModel.addRow(tableData);
+		
             }
             
             
