@@ -33,6 +33,7 @@ public class receipt extends javax.swing.JFrame {
     public String time;
     private Double subtotal;
     private String txt;
+    private String total;
     private int count=0;
 
     /**
@@ -46,6 +47,16 @@ public class receipt extends javax.swing.JFrame {
     public receipt() {
 	initComponents();
 	String text = "";
+	
+	try{
+	    Scanner sc1 = new Scanner(new FileInputStream("total.txt"));
+	    String str = sc1.nextLine();
+	    jTextPane7.setText(str);
+	    
+	    sc1.close();
+	}catch(FileNotFoundException | NumberFormatException e){
+	    JOptionPane.showMessageDialog(null, e);
+	}
 	try{
 	    Scanner sc1 = new Scanner(new FileInputStream("sub.txt"));
 	    String str = sc1.nextLine();
@@ -73,7 +84,7 @@ public class receipt extends javax.swing.JFrame {
 	    seat = sc3.nextLine();
 	    mprice = sc3.nextLine();
 	    sc3.close();
-	    jTextPane7.setText(Double.toString(subtotal+Double.parseDouble(mprice)));
+	    
 	    try{
 		
 		jTextPane4.setText(seat);
